@@ -11,10 +11,10 @@ import {  DecrementarAction, IncrementarAction } from './contador/contador.actio
 })
 export class AppComponent{
  
-    con:number
+    contador:number
 
     constructor(private store:Store<any>){
-        this.store.subscribe((state) => this.con = state.contar)
+        this.store.select('contador').subscribe( (contador) => this.contador = contador )
     }
 
     incrementar(){
@@ -23,14 +23,14 @@ export class AppComponent{
     }
 
     decrementar(){
-     if(this.con > 0){
+     if(this.contador > 0){
         const { type } = new DecrementarAction() 
         this.disparador(type)
       }
     }
 
     private disparador(type){
-      this.store.dispatch({ type, payload : this.con})
+      this.store.dispatch({ type, payload : this.contador})
     }
      
 }
