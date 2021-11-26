@@ -1,0 +1,18 @@
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+      <h1>contador</h1>
+      <h2>{{ contador }}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+     <button  clasS="btn btn-primary mx-1" (click)="multiplicacion()">multiplicacion</button>
+     <button  clasS="btn btn-secondary" (click)="division()">division</button>
+  </div>
+</div>
+
+<hr>
+<app-nieto [contador]="contador" (cambioContador)="reset($event)"></app-nieto>
